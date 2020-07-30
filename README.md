@@ -1,6 +1,6 @@
 # Programming and Back-end Development Lessons
 
-## This repo is the collection of the problems, exercises, and projects completed within the Programming and Back-end Development courses at Launch School
+### This repo is the collection of the problems, exercises, and projects completed within the Programming and Back-end Development courses at Launch School
 
 The courses covered: 
 
