@@ -2,7 +2,7 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def valid_number? (num)
+def valid_number?(num)
   num != 0
 end
 
@@ -31,12 +31,20 @@ loop do
     end
   end
 
-  prompt("Please Enter the operation: 1) add 2) subtract 3) multiplication 4) division")
+  operation_prompt = <<-MSG
+    Please Enter the operation:
+    1. add 
+    2. subtract 
+    3. multiplication 
+    4. division
+  MSG
+  prompt(operation_prompt)
+
   operation = 0
   loop do
     operation = Kernel.gets().chomp().to_i()
 
-    if [1,2,3,4].include?(operation)
+    if [1, 2, 3, 4].include?(operation)
       break
     else
       prompt("Must choose 1, 2, 3, or 4")
@@ -44,15 +52,15 @@ loop do
   end
 
   answer = case operation
-            when 1
-              first_number + second_number
-            when 2
-              first_number - second_number
-            when 3
-              first_number * second_number
-            when 4
-              first_number.to_f / second_number
-            end
+           when 1
+             first_number + second_number
+           when 2
+             first_number - second_number
+           when 3
+             first_number * second_number
+           when 4
+             first_number.to_f / second_number
+           end
 
   prompt(answer)
 
