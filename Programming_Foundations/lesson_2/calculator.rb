@@ -1,33 +1,36 @@
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def valid_number?(num)
-  num != 0
+  Float(num) rescue false
 end
 
 loop do
   first_number = 0
   loop do
-    prompt("Please Enter the first number")
-    first_number = Kernel.gets().chomp().to_i()
+    prompt(MESSAGES['first_input'])
+    first_number = Kernel.gets().chomp().to_f()
 
     if valid_number?(first_number)
       break
     else
-      prompt("Not a valid number...Try again")
+      prompt(MESSAGES['invalid'])
     end
   end
 
   second_number = 0
   loop do
-    prompt("Please Enter the second number")
-    second_number = Kernel.gets().chomp().to_i()
+    prompt(MESSAGES['second_input'])
+    second_number = Kernel.gets().chomp().to_f()
 
     if valid_number?(second_number)
       break
     else
-      prompt("Not a valid number...Try again")
+      prompt(MESSAGES['invalid'])
     end
   end
 
@@ -47,7 +50,7 @@ loop do
     if [1, 2, 3, 4].include?(operation)
       break
     else
-      prompt("Must choose 1, 2, 3, or 4")
+      prompt(MESSAGES['valid_operation'])
     end
   end
 
@@ -59,12 +62,12 @@ loop do
            when 3
              first_number * second_number
            when 4
-             first_number.to_f / second_number
+             first_number / second_number
            end
 
   prompt(answer)
 
-  prompt("Would you like to make another calculation? (Y for yes)")
+  prompt(MESSAGES['continue'])
   continue = Kernel.gets().chomp()
   continue.downcase!
 

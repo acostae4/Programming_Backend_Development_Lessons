@@ -1,0 +1,5 @@
+invalid: "Not a valid number...Try again"
+first_input: "Please enter the first number"
+second_input: "Please enter the second number"
+valid_operation: "Must choose 1, 2, 3, or 4"
+continue: "Would you like to make another calculation? (Y for yes)"
